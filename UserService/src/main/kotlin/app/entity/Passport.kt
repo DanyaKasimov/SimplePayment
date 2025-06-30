@@ -21,5 +21,5 @@ class Passport{
     var number: String = ""
 
     @Column(nullable = true)
-    var url: String = ""
+    var s3Key: String = ""
 }

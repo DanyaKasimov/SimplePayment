@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service
 import java.util.*
 
 @Service
-class JWTServiceImpl(private val config: AppConfig) : JwtService {
+class JwtServiceImpl(private val config: AppConfig) : JwtService {
 
     override fun generateToken(authentication: Authentication): String {
         val userDetails: UserDetailsImpl = authentication.principal as UserDetailsImpl

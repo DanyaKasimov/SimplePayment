@@ -12,8 +12,8 @@ app:
   jwt:
     secret: ${JWT_SECRET}
   cloud:
-    id: ${OBJECT_STORAGE_KEY_ID}
-    secret: ${OBJECT_STORAGE_KEY_SECRET}
+    key-id: ${OBJECT_STORAGE_KEY_ID}
+    key-secret: ${OBJECT_STORAGE_KEY_SECRET}
     url: ${OBJECT_STORAGE_URL}
     tenant-id: ${OBJECT_STORAGE_TENANT_ID}
     bucket: ${OBJECT_STORAGE_BUCKET}

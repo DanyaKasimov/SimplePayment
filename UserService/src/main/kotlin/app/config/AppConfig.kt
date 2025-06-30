@@ -29,8 +29,8 @@ data class AppConfig(
 
     data class JWTProperties(@NotEmpty val secret: String)
 
-    data class CloudProperties(@NotEmpty val id: String,
-                               @NotEmpty val secret: String,
+    data class CloudProperties(@NotEmpty val keyId: String,
+                               @NotEmpty val keySecret: String,
                                @NotEmpty val url: String,
                                @NotEmpty val tenantId: String,
                                @NotEmpty val bucket: String)

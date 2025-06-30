@@ -1,8 +1,10 @@
 package app.mapper
 
+import app.dto.PassportDTO
 import app.dto.SignUpDTO
 import app.entity.Passport
 import app.entity.User
+import app.objectStorage.S3Service
 import org.springframework.security.crypto.password.PasswordEncoder
 
 fun SignUpDTO.toEntity(passwordEncoder: PasswordEncoder): User {
@@ -26,4 +28,13 @@ fun toPassportEntity(signUpDTO: SignUpDTO): Passport {
     passport.series = signUpDTO.passportSeria
     passport.number = signUpDTO.passportNumber
     return passport
+}
+
+fun Passport.toDto(s3Service: S3Service): PassportDTO {
+    return PassportDTO(
+        id = this.id,
+        series = this.series,
+        number = this.number,
+        s3Url = s3Service.generateUrl(this.s3Key)
+    )
 }

@@ -7,4 +7,6 @@ import java.util.UUID
 
 @Repository
 interface PassportRepository : JpaRepository<Passport, UUID> {
+
+    fun findBySeriesAndNumber(series: String, number: String): Passport?
 }

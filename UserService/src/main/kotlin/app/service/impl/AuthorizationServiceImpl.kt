@@ -3,6 +3,8 @@ package app.service.impl
 import app.constants.Message
 import app.dto.*
 import app.entity.User
+import app.exceptions.AuthenticationException
+import app.exceptions.InvalidDataException
 import app.service.*
 
 import org.springframework.stereotype.Service
@@ -26,13 +28,13 @@ class AuthorizationServiceImpl(private val verificationService: VerificationServ
     override fun verifyCode(verificationCodeDTO: VerifyCodeDTO): MessageDTO {
         val isMatches: Boolean = verificationService.verifyCode(verificationCodeDTO.email,
                                                                 verificationCodeDTO.code)
-        return if (isMatches) MessageDTO("Почта подтверждена") else throw RuntimeException("Неверный код")
+        return if (isMatches) MessageDTO("Почта подтверждена") else throw InvalidDataException("Неверный код")
 
     }
 
     override fun signUp(signUpDTO: SignUpDTO): MessageDTO {
         if (!verificationService.emailIsVerify(signUpDTO.email)) {
-            throw RuntimeException("Почта [${signUpDTO.email}] не подтверждена")
+            throw AuthenticationException("Почта [${signUpDTO.email}] не подтверждена")
         }
 
         val user: User = userService.create(signUpDTO)
