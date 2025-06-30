@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController
 import java.util.*
 
 @RestController
-class WalletController(private val walletService: WalletService) : WalletApi {
+open class WalletController(private val walletService: WalletService) : WalletApi {
 
     override fun createWallet(userId: UUID): Wallet = walletService.createWallet(userId)
 

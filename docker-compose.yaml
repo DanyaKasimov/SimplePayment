@@ -49,6 +49,36 @@ services:
     ports:
       - "6379:6379"
 
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.7.0
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+    ports:
+      - "9200:9200"
+    volumes:
+      - es-data:/usr/share/elasticsearch/data
+
+  logstash:
+    image: docker.elastic.co/logstash/logstash:8.7.0
+    volumes:
+      - ./PaymentService/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+      - ./PaymentService/logs:/var/log/spring
+    depends_on:
+      - elasticsearch
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana-data:/var/lib/grafana
+    depends_on:
+      - elasticsearch
 
 volumes:
   postgres_data:
+  es-data:
+    driver: local
+  grafana-data:
+    driver: local

@@ -21,7 +21,9 @@ app:
     url: ${OBJECT_STORAGE_URL}
     tenant-id: ${OBJECT_STORAGE_TENANT_ID}
     bucket: ${OBJECT_STORAGE_BUCKET}
-
+  elastic:
+    host: localhost
+    port: 9200
 
 server:
   port: ${PAYMENT_PORT}
@@ -43,19 +45,13 @@ spring:
     redis:
       host: localhost
       port: 6379
-  kafka:
-    producer:
-      properties:
-        transaction.state.log.replication.factor: 1
-        transaction.state.log.min.isr: 1
+
 logging:
+  file:
+    path: ./PaymentService/logs
+    name: ./PaymentService/logs/application.log
   level:
-    root: info
-    org:
-      springframework:
-        web: warn
-      hibernate: error
-    web: warn
+    root: INFO
 
 springdoc:
   swagger-ui:

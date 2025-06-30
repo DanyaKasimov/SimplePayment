@@ -16,6 +16,7 @@ data class AppConfig(
     @Valid val redis: RedisProperties,
     @Valid val jwt: JWTProperties,
     @Valid val cloud: CloudProperties,
+    @Valid val elastic: ElasticsearchProperties,
 ) {
 
     data class KafkaProperties(@NotEmpty val bootstrapServers: String,
@@ -42,4 +43,7 @@ data class AppConfig(
     data class NotificationServiceProperties(@NotEmpty val url: String)
 
     data class UserServiceProperties(@NotEmpty val url: String)
+
+    data class ElasticsearchProperties(@NotEmpty val host: String,
+                                       @NotEmpty val port: Int,)
 }
