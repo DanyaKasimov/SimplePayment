@@ -9,16 +9,14 @@ import org.springframework.kafka.core.KafkaTemplate
 import org.springframework.stereotype.Service
 
 @Service
-class PaymentServiceImpl(private val kafkaTemplate: KafkaTemplate<String, String>,
-                         private val config: AppConfig,
-                         private val objectMapper: ObjectMapper) : PaymentService {
+open class PaymentServiceImpl(private val kafkaTemplate: KafkaTemplate<String, String>,
+                              private val config: AppConfig,
+                              private val objectMapper: ObjectMapper) : PaymentService {
 
 
     override fun createPayment(paymentDTO: PaymentDTO): MessageDTO {
-        val event = objectMapper.writeValueAsString(paymentDTO)
-        kafkaTemplate.send(config.kafka.topics.payment, event)
+        kafkaTemplate.send(config.kafka.topics.payment, objectMapper.writeValueAsString(paymentDTO))
         return MessageDTO("Платеж инициирован")
     }
-
 
 }
