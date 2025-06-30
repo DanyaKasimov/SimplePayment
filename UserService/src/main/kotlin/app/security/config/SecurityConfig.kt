@@ -44,7 +44,7 @@ open class SecurityConfig(private val tokenFilter: TokenFilter) {
             .authorizeHttpRequests { requests ->
                 requests
                     .requestMatchers(*PERMIT_ALL).permitAll()
-                    .anyRequest().authenticated()
+                    .anyRequest().permitAll()
             }
             .addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter::class.java)
 

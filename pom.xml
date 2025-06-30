@@ -5,12 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>backend.academy</groupId>
-    <artifactId>PaymentService</artifactId>
+    <artifactId>SimplePayment</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <modules>
-        <module>UserService</module>
-    </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

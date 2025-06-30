@@ -9,6 +9,7 @@ import app.repository.UserRepository
 import app.service.UserService
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
+import java.util.*
 
 @Service
 class UserServiceImpl(private val userRepository: UserRepository,
@@ -24,5 +25,9 @@ class UserServiceImpl(private val userRepository: UserRepository,
         }
         val user: User = signUpDTO.toEntity(passwordEncoder)
         return userRepository.save(user)
+    }
+
+    override fun existsById(id: UUID): Boolean {
+        return userRepository.existsById(id)
     }
 }

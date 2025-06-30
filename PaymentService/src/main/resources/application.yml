@@ -1,0 +1,63 @@
+app:
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
+    group: payment-group
+    topics:
+      payment: payment
+      email: email
+  transport:
+    type: ${TRANSPORT_TYPE}
+  notification-service:
+    url: ${NOTIFICATION_SERVICE_URL}
+  user-service:
+    url: ${USER_SERVICE_URL}
+  redis:
+    prefix: ${REDIS_PREFIX}
+  jwt:
+    secret: ${JWT_SECRET}
+  cloud:
+    key-id: ${OBJECT_STORAGE_KEY_ID}
+    key-secret: ${OBJECT_STORAGE_KEY_SECRET}
+    url: ${OBJECT_STORAGE_URL}
+    tenant-id: ${OBJECT_STORAGE_TENANT_ID}
+    bucket: ${OBJECT_STORAGE_BUCKET}
+
+
+server:
+  port: ${PAYMENT_PORT}
+
+spring:
+  application:
+    name: payment-service
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASS}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+  data:
+    redis:
+      host: localhost
+      port: 6379
+  kafka:
+    producer:
+      properties:
+        transaction.state.log.replication.factor: 1
+        transaction.state.log.min.isr: 1
+logging:
+  level:
+    root: info
+    org:
+      springframework:
+        web: warn
+      hibernate: error
+    web: warn
+
+springdoc:
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui

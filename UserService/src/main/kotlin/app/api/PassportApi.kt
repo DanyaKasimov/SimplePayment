@@ -62,7 +62,7 @@ interface PassportApi {
                 description = "Паспорт получен.",
                 content = [Content(
                     mediaType = "application/json",
-                    schema = Schema(implementation = MessageDTO::class)
+                    schema = Schema(implementation = PassportDTO::class)
                 )]
             ),
             ApiResponse(

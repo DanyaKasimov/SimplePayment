@@ -9,9 +9,9 @@ import org.springframework.cloud.openfeign.EnableFeignClients
 @SpringBootApplication
 @EnableFeignClients
 @EnableConfigurationProperties(AppConfig::class)
-open class Application
+open class PaymentApplication
 
 fun main(args: Array<String>) {
-    SpringApplication.run(Application::class.java, *args)
+    SpringApplication.run(PaymentApplication::class.java, *args)
 }
 
