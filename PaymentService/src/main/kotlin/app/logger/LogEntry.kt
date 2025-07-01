@@ -7,7 +7,7 @@ data class LogEntry(
     val serviceName: String,
     val methodName: String,
     val className: String,
-    val arguments: List<String>,
+    val arguments: List<String> = emptyList(),
     val executionTimeMs: Long? = null,
     val result: String? = null,
     val error: String? = null,
