@@ -17,6 +17,7 @@
 * Amazon S3 (Cloud.ru) 
 * PostgreSQL
 * ElasticSearch + Grafana
+* Swagger
 
 ## Возможности и особенности
 
