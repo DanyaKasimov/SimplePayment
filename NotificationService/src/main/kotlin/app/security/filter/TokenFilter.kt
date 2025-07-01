@@ -1,9 +1,8 @@
 package app.security.filter
 
-import app.exceptions.AuthenticationException
+import app.exception.AuthenticationException
 import app.security.authentication.TokenAuthentication
 import app.service.JwtService
-import com.auth0.jwt.interfaces.DecodedJWT
 import io.jsonwebtoken.ExpiredJwtException
 import jakarta.servlet.FilterChain
 import jakarta.servlet.ServletException

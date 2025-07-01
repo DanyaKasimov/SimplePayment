@@ -2,10 +2,11 @@ package app.constants
 
 object Message {
 
-    fun signupUser(name: String, surname: String) =
-        "Здравствуйте $surname $name! Вы успешно зарегистрировались в SimplePayment"
+    fun paymentSender(name: String, surname: String, amount: Long, check: String) =
+        "Здравствуйте $surname $name! Выполнен перевод $amount руб. Чек: $check"
+
+    fun paymentRecipient(name: String, surname: String, amount: Long, check: String) =
+        "Здравствуйте $surname $name! Зачислено $amount руб. Чек: $check"
 
 
-    fun code(code: String) =
-        "Ваш код подтверждения: $code"
 }

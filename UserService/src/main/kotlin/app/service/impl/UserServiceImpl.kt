@@ -1,9 +1,11 @@
 package app.service.impl
 
 import app.dto.SignUpDTO
+import app.dto.UserDTO
 import app.entity.User
 import app.exceptions.InvalidDataException
 import app.exceptions.NotFoundDataException
+import app.mapper.toDto
 import app.mapper.toEntity
 import app.repository.UserRepository
 import app.service.UserService
@@ -29,5 +31,12 @@ class UserServiceImpl(private val userRepository: UserRepository,
 
     override fun existsById(id: UUID): Boolean {
         return userRepository.existsById(id)
+    }
+
+    override fun findById(id: UUID): UserDTO {
+        val user: User = userRepository.findById(id)
+            .orElseThrow{ NotFoundDataException("Пользователь не найден")}
+
+        return user.toDto()
     }
 }

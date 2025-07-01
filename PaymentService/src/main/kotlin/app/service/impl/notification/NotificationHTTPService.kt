@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service
 @Service
 class NotificationHTTPService(private val notificationClient: NotificationClient) : NotificationService {
 
-    override fun sendEmail(address: String, content: String) {
+    override fun sendEmail(address: String, content: String, token: String) {
         val emailDTO = EmailDTO(address, content)
-        notificationClient.sendEmail(emailDTO)
+        notificationClient.sendEmail(emailDTO, token)
     }
 }

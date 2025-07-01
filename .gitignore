@@ -41,3 +41,5 @@ dev.env
 
 .idea/
 
+PaymentService/logs/
+

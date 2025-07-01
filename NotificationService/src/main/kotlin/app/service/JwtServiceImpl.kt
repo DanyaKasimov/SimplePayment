@@ -1,4 +1,4 @@
-package app.service.impl
+package app.service
 
 import app.config.AppConfig
 import app.service.JwtService

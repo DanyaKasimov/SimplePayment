@@ -12,7 +12,7 @@ class NotificationKAFKAService(private val kafkaTemplateString: KafkaTemplate<St
                                private val objectMapper: ObjectMapper,
                                private val appConfig: AppConfig) : NotificationService {
 
-    override fun sendEmail(address: String, content: String) {
+    override fun sendEmail(address: String, content: String, token: String) {
         val emailDTO = EmailDTO(address, content)
         val emailBody = objectMapper.writeValueAsString(emailDTO)
 

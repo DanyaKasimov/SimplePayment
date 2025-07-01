@@ -2,6 +2,7 @@ package app.mapper
 
 import app.dto.PassportDTO
 import app.dto.SignUpDTO
+import app.dto.UserDTO
 import app.entity.Passport
 import app.entity.User
 import app.objectStorage.S3Service
@@ -36,5 +37,19 @@ fun Passport.toDto(s3Service: S3Service): PassportDTO {
         series = this.series,
         number = this.number,
         s3Url = s3Service.generateUrl(this.s3Key)
+    )
+}
+
+fun User.toDto(): UserDTO {
+    return UserDTO(
+        name = this.name,
+        surname = this.surname,
+        middle = this.middle,
+        birthday = this.birthday,
+        gender = this.gender,
+        inn = this.inn,
+        address = this.address,
+        role = this.role,
+        email = this.email
     )
 }

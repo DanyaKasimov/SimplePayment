@@ -2,7 +2,6 @@ package app.dto
 
 import app.constants.Gender
 import app.constants.Role
-import app.entity.Passport
 import java.time.LocalDate
 
 data class UserDTO(
@@ -22,6 +21,6 @@ data class UserDTO(
 
     var role: Role,
 
-    var email: String? = null,
+    var email: String,
 ) {
 }

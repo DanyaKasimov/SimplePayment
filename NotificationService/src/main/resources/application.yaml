@@ -4,7 +4,8 @@ app:
     group: email-group
     topics:
       email: email
-
+  jwt:
+    secret: ${JWT_SECRET}
 
 server:
   port: ${NOTIFICATION_PORT}

@@ -21,6 +21,7 @@ class JwtServiceImpl(private val config: AppConfig) : JwtService {
             .withClaim("surname", userDetails.getSurname())
             .withClaim("email", userDetails.getEmail())
             .withClaim("id", java.lang.String.valueOf(userDetails.getId()))
+            .withClaim("role", userDetails.authorities.first().authority)
             .withExpiresAt(Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10))
             .sign(Algorithm.HMAC256(config.jwt.secret))
     }

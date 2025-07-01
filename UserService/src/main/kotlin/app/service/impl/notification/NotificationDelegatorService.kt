@@ -9,9 +9,11 @@ class NotificationDelegatorService(private val primary: NotificationService,
 
     override fun sendEmail(address: String, content: String) {
         try {
+            println("Отправка запроса на primary транспорт: $primary")
             primary.sendEmail(address, content)
         } catch (e: Exception) {
             try {
+                println("Отправка запроса на secondary транспорт: $secondary")
                 secondary.sendEmail(address, content)
             } catch (ex: Exception) {
                 throw RuntimeException(

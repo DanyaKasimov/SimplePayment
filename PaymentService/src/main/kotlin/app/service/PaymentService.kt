@@ -5,5 +5,5 @@ import app.dto.PaymentDTO
 
 interface PaymentService {
 
-    fun createPayment(paymentDTO: PaymentDTO): MessageDTO
+    fun createPayment(paymentDTO: PaymentDTO, token: String): MessageDTO
 }

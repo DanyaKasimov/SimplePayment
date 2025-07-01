@@ -17,8 +17,8 @@ open class TransportConfig(private val appConfig: AppConfig) {
                                  kafkaService: NotificationKAFKAService
     ): NotificationDelegatorService {
         return when (appConfig.transport.type) {
-            TransportEnum.KAFKA -> NotificationDelegatorService(httpService, kafkaService)
-            TransportEnum.HTTP -> NotificationDelegatorService(kafkaService, httpService)
+            TransportEnum.HTTP -> NotificationDelegatorService(httpService, kafkaService)
+            TransportEnum.KAFKA -> NotificationDelegatorService(kafkaService, httpService)
         }
     }
 }

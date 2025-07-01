@@ -11,7 +11,7 @@ class NotificationService(private val emailSender: JavaMailSender) {
     fun sendEmail(body: EmailDTO) {
         val message = SimpleMailMessage()
         message.setTo(body.address)
-        message.subject = "StudentsGrade"
+        message.subject = "SimplePayment"
         message.text = body.content
         emailSender.send(message)
     }
