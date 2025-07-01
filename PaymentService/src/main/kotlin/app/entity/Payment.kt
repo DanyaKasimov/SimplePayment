@@ -25,6 +25,9 @@ class Payment{
     @Column(nullable = false)
     var amount: Long = 0L
 
+    @Column(nullable = true)
+    var checkKey: String? = null
+
     @CreationTimestamp
     val createdAt: LocalDateTime = LocalDateTime.now()
 }
