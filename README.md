@@ -6,12 +6,7 @@
 ## Stack
 
 * Kotlin
-* Spring
-  - Boot
-  - Security
-  - Cloud
-  - Data JPA
-  - AOP
+* Spring (Boot • Security • Cloud • Data JPA • AOP)
 * Kafka
 * Redis
 * Amazon S3 (Cloud.ru) 
